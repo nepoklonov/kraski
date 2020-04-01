@@ -51,7 +51,7 @@ class GalleryPreview : RComponent<RProps, GalleryPreviewState>() {
                         +MainStyles.tapable
                     }
                     attrs.onClickFunction = { _ ->
-                        setState { index = (index - 1) % yaml.size }
+                        setState { index = (index - 1) % yaml.size; if (index < 0) {index += yaml.size} }
                     }
                 }
                 imageInDiv(state.yaml[state.index].src, "cover", 200.px, 120.px) {
