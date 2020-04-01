@@ -10,9 +10,11 @@ inline fun getScaledImage(src: BufferedImage, scale: Scale
                           , transform: (PlanarSize, PlanarSize) -> PlanarSize
                           = { _, rectSize -> rectSize }): BufferedImage {
     val size = transform(src.width x src.height, scale.size)
-    val result = BufferedImage(size.width, size.height, BufferedImage.TRANSLUCENT)
+    val result = BufferedImage(size.width, size.height, BufferedImage.TYPE_INT_RGB)
     val g2 = result.createGraphics()
-    g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BICUBIC)
+//    g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BICUBIC)
+    g2.setRenderingHint (RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON)
+    g2.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY )
     g2.drawImage(src, 0, 0, size.width, size.height, null)
     g2.dispose()
     return result

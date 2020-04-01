@@ -1,0 +1,65 @@
+plugins {
+    id 'kotlin-multiplatform'
+    id 'kotlinx-serialization'
+}
+
+repositories { 
+    jcenter()
+    mavenCentral()
+}
+
+kotlin {
+    jvm() {
+        tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+            kotlinOptions {
+                freeCompilerArgs += ['-Xuse-experimental=kotlin.Experimental']
+            }
+        }
+    }
+
+    js() {
+        compilations.all {
+            kotlinOptions {
+                sourceMap = true
+                moduleKind = "commonjs"
+                metaInfo = true
+                freeCompilerArgs += ['-Xuse-experimental=kotlin.Experimental']
+            }
+        }
+
+        compilations.main {
+            kotlinOptions {
+                main = "call"
+            }
+        }
+    }
+
+    sourceSets {
+        all {
+            languageSettings {
+                useExperimentalAnnotation("kotlin.Experimental")
+            }
+        }
+        commonMain {
+            compileKotlinJvm {
+                
+            }
+            dependencies {
+                implementation 'org.jetbrains.kotlin:kotlin-stdlib-common'
+                implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:0.11.1"
+            }
+        }
+        jvmMain {
+            dependencies {
+                implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
+                implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.11.1"
+            }
+        }
+        jsMain {
+            dependencies {
+                implementation 'org.jetbrains.kotlin:kotlin-stdlib-js'
+                implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:0.11.1"
+            }
+        }
+    }
+}

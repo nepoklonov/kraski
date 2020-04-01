@@ -25,10 +25,19 @@ import kraski.server.database.*
 import kotlinx.html.body
 import kotlinx.html.h1
 import kotlinx.html.h2
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
 import kotlinx.serialization.list
+import kraski.common.interpretation.DirRef
+import kraski.common.interpretation.JsonRef
+import kraski.common.interpretation.Pages
+import kraski.common.interpretation.dot
+import kraski.common.models.News
 import kraski.server.database.getModelTable
 import kraski.server.database.loggedTransaction
+import org.jetbrains.exposed.sql.deleteAll
 import org.jetbrains.exposed.sql.selectAll
+import java.io.File
 import kotlin.reflect.KClass
 import kotlin.reflect.full.memberProperties
 
@@ -87,23 +96,33 @@ fun Route.startAdminGetFileByIdAPI() = adminListenAndAutoRespond<Request.AdminGe
     Answer.ok(FileAnswer.serializer(), FileAnswer(request.id, ref.path))
 }
 
+@Serializable
+data class NewsJson(
+    val date: String, val header: String, val shortContent: String, val content: String, val author: String, val picture: String
+)
+
 fun Route.startTasksAPI() {
     get("/admin/tasks/!0") {
         call.respondHtml {
             body {
                 if (isAdmin()) {
+
                     h1 {
                         +"Welcome to the Task Center"
                     }
                     loggedTransaction {
-                        FormType.values().map {
-                            it.klass.getModelTable()
-                        }.map { table ->
-                            table.model.fields.forEach { field ->
-                                if (field.type == ModelFieldType.STRING || field.type == ModelFieldType.TEXT) {
-                                    this.exec(table.getColumn(field.name).modifyStatement()[0])
-                                }
-                            }
+
+
+                        News::class.getModelTable().deleteAll()
+                    }
+                    loggedTransaction {
+                        File((DirRef.json file "news" dot "json").path.trim('/')).readText().let {
+                            Json.parse(NewsJson.serializer().list, it)
+                        }.forEach { yetAnotherNews ->
+                            val pic = yetAnotherNews.picture
+                            val id = addParticipantFile(ParticipantFile(-1, FormType.NewsForm, pic, ""))
+                            addImageVersions(Pages.Uploads.Images.news file pic, id)
+                            yetAnotherNews.run { News::class.getModelTable().insert(News(header, shortContent, content, author, id, date, -1, date, Unit)) }
                         }
                     }
                 }

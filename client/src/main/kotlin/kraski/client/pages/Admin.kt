@@ -161,13 +161,18 @@ class AdminComponent(pageProps: PageProps) : StandardPageComponent<AdminState>(p
                     }
                 }
 
-                forms("ЭтноТур", FormType.Art)
-                forms("Лики земли Карельской", FormType.Photos)
-                forms("Калевала — страна солнца", FormType.Music)
-                forms("ЭтноМотив", FormType.Dance)
-                forms("Научно-деловая программа", FormType.Scientific)
-                forms("Научно-деловая программа: Статьи", FormType.Literature)
-                forms("Организовать площадку этнофестиваля", FormType.Professional)
+//                forms("ЭтноТур", FormType.Art)
+//                forms("Лики земли Карельской", FormType.Photos)
+//                forms("Калевала — страна солнца", FormType.Music)
+//                forms("ЭтноМотив", FormType.Dance)
+//                forms("Научно-деловая программа", FormType.Scientific)
+//                forms("Научно-деловая программа: Статьи", FormType.Literature)
+//                forms("Организовать площадку этнофестиваля", FormType.Professional)
+
+                listOf(FormType.Art, FormType.Photos, FormType.Music, FormType.Dance, FormType.Scientific, FormType.Literature, FormType.Professional).forEach {
+                    forms(it.title, it)
+                }
+
             } else {
                 child(Contest::class) {
                     attrs.formType = FormType.Admin

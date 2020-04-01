@@ -6,6 +6,7 @@ import kotlinx.css.properties.TextDecoration
 import kotlinx.html.DIV
 import kotlinx.html.H3
 import kotlinx.html.SPAN
+import kraski.common.interpretation.ImageDirs
 import react.RBuilder
 import styled.*
 import kotlin.math.max
@@ -41,6 +42,18 @@ fun getPageColor(pageRef: PageRef, isDark: Boolean): RGBA {
 
 
 object MainStyles : StyleSheet("main") {
+
+    val tapable by css {
+        cursor = Cursor.pointer
+        opacity = 0.4
+        hover {
+            opacity = 0.7
+        }
+        active {
+            opacity = 1
+        }
+    }
+
     val yellowString by css {
         color = redKraski
         backgroundColor = yellowKraski

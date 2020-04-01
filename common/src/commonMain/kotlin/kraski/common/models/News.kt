@@ -13,9 +13,17 @@ data class News(
     @Display(103, "Заголовок")
     val header: String,
 
+    @SaveToTable
+    @Display(104, "Короткая форма новости")
+    val shortContent: String,
+
     @SaveToTable(longText = true)
-    @Display(104, "Текст новости", displayType = DisplayType.HTML)
+    @Display(105, "Текст новости", displayType = DisplayType.HTML)
     val content: String,
+
+    @SaveToTable
+    @Display(106, "Автор")
+    val author: String,
 
     @SaveToTable
     @Display(212, "Картинка (по желанию)",

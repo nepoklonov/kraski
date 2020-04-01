@@ -11,6 +11,7 @@ import kotlinx.serialization.ContextSerializer
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.list
 import kraski.client.*
+import kraski.client.stucture.GalleryPreview
 import kraski.common.*
 import kraski.common.interpretation.ImageDirs
 import kraski.common.interpretation.JsonRef
@@ -111,6 +112,7 @@ class HeaderComponent : RComponent<RoutedProps, HeaderState>() {
                     +General.shortDescription
                 }
             }
+            child(GalleryPreview::class) {}
             styledDiv {
                 css {
                     width = 70.px

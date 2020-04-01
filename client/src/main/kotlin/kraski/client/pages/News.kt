@@ -16,6 +16,7 @@ import kotlinx.css.properties.TextDecorationLine
 import kotlinx.css.properties.textDecoration
 import kotlinx.html.js.onClickFunction
 import kotlinx.serialization.list
+import react.RBuilder
 import react.dom.InnerHTML
 import react.setState
 import styled.*
@@ -43,46 +44,56 @@ class NewsComponent(props: PageProps) : StandardPageComponent<NewsState>(props) 
         }
     }
 
+    private fun RBuilder.editButton(news: NewsWithSrc) {
+        styledSpan {
+            css {
+                marginLeft = 10.px
+                color = gray50Color
+                textDecoration(TextDecorationLine.underline)
+                fontStyle = FontStyle.italic
+                cursor = Cursor.pointer
+            }
+            attrs.onClickFunction = {
+                setState { editId = news.news.id }
+            }
+            +"редактировать"
+        }
+    }
+
     override fun StyledDOMBuilder<*>.page() {
         state.news.forEach { news ->
             styledDiv {
                 css {
-                    margin(30.px)
+                    margin(50.px, 0.px)
+                    overflow = Overflow.hidden
+                    width = 90.pct
                 }
-                redH3 {
+                styledH3 {
+                    css { color = redKraski }
                     +news.news.header
-                    if (state.isAdmin) {
-                        styledSpan {
-                            css {
-                                marginLeft = 10.px
-                                color = gray50Color
-                                textDecoration(TextDecorationLine.underline)
-                                fontStyle = FontStyle.italic
-                                cursor = Cursor.pointer
-                            }
-                            attrs.onClickFunction = {
-                                setState { editId = news.news.id }
-                            }
-                            +"редактировать"
-                        }
-                    }
+                    if (state.isAdmin) editButton(news)
                 }
-                styledSpan {
+                styledP {
                     css {
                         color = gray50Color
                     }
                     +news.news.date.split('.').reversed().joinToString(".") { it }
+                    if (news.news.author.isNotEmpty()) {
+                        +" — "
+                        +news.news.author
+                    }
                 }
                 styledDiv {
-                    css {
-                        margin(10.px, 0.px)
+                    css { margin(10.px, 0.px) }
+                    if (news.src != "") styledImg(src = news.src) {
+                        css {
+                            width = 400.px
+                            float = Float.right
+                            marginLeft = 30.px
+                        }
                     }
-                    attrs["dangerouslySetInnerHTML"] = InnerHTML(news.news.content)
-
-                }
-                if (news.src != "") styledImg(src = news.src) {
-                    css {
-                        width = 400.px
+                    styledDiv {
+                        attrs["dangerouslySetInnerHTML"] = InnerHTML(news.news.content)
                     }
                 }
             }

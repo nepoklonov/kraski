@@ -53,13 +53,14 @@ fun RBuilder.news(title: String, subtitle: String, content: String, imageSrc: St
             //height = 100.px
             margin(15.px, 0.px)
         }
-        imageInDiv(imageSrc, "contain") {
+        imageInDiv(imageSrc, "contain", width = 200.px) {
             css {
                 gridArea = "image"
             }
         }
         styledDiv {
             css {
+                fontSize = 18.px
                 gridArea = "title"
                 fontWeight = FontWeight.bold
             }
@@ -68,7 +69,6 @@ fun RBuilder.news(title: String, subtitle: String, content: String, imageSrc: St
         styledDiv {
             css {
                 gridArea = "subtitle"
-                fontSize = 12.pt
                 color = gray70Color
             }
             +subtitle
@@ -77,10 +77,9 @@ fun RBuilder.news(title: String, subtitle: String, content: String, imageSrc: St
             css {
                 overflow = Overflow.hidden
                 gridArea = "imageContent"
-                fontSize = 10.pt
             }
             attrs["dangerouslySetInnerHTML"] = InnerHTML(content.match("^(([^.?!])|(\\S[.?!]\\S))*[.?!]*")?.get(0)
-                    ?: "")
+                ?: "")
         }
     }
 }
@@ -158,33 +157,75 @@ class MainComponent(props: PageProps) : PageComponent<MainState>(props) {
                                 alignSelf = Align.flexEnd
                             }
                             +"Алёна Игоревна Аршинова,"
-                            br{}
+                            br {}
                             +"депутат Государственной Думы ФС РФ,"
-                            br{}
+                            br {}
                             +"куратор Всероссийского фестиваля ${General.ruTitle.quote()}"
                         }
                     }
                 }
                 yellowLine()
             }
-            styledDiv {
+//            styledDiv {
+//                css {
+//                    display = Display.grid
+//                    gridTemplateRows = GridTemplateRows(40.px, auto, 40.px)
+//                    rowGap = RowGap(10.px.value)
+//                    alignContent = Align.flexStart
+//                }
+//                styledDiv {
+//                    css {
+//                        display = Display.grid
+//                        rowGap = RowGap(20.px.value)
+//                    }
+//                    if (state.news != undefined && state.news.isNotEmpty()) {
+//                        state.news.forEach {
+//                            news(it.news.header, it.news.date, it.news.shortContent, it.src)
+//                        }
+//                    }
+//                }
+            styledH2 {
                 css {
-                    display = Display.grid
-                    gridTemplateRows = GridTemplateRows(40.px, auto, 40.px)
-                    rowGap = RowGap(10.px.value)
-                    alignContent = Align.flexStart
+                    marginTop = 20.px
                 }
+                +"Наши Новости"
+            }
+            state.news.forEach { news ->
                 styledDiv {
                     css {
-                        display = Display.grid
-                        rowGap = RowGap(20.px.value)
+                        overflow = Overflow.hidden
+                        margin(0.px, 0.px, 50.px, 0.px)
+                        width = 90.pct
                     }
-                    if (state.news != undefined && state.news.isNotEmpty()) {
-                        state.news.subList(max(state.index, 0), min(state.index + amount, state.news.size - 1)).forEach {
-                            news(it.news.header, "", it.news.content, it.src)
+                    styledH3 {
+                        css { color = redKraski }
+                        +news.news.header
+                    }
+                    styledP {
+                        css {
+                            color = gray50Color
+                        }
+                        +news.news.date.split('.').reversed().joinToString(".") { it }
+                        if (news.news.author.isNotEmpty()) {
+                            +" — "
+                            +news.news.author
+                        }
+                    }
+                    styledDiv {
+                        css { margin(10.px, 0.px) }
+                        if (news.src != "") styledImg(src = news.src) {
+                            css {
+                                width = 400.px
+                                marginLeft = 30.px
+                                float = Float.right
+                            }
+                        }
+                        styledDiv {
+                            attrs["dangerouslySetInnerHTML"] = InnerHTML(news.news.content)
                         }
                     }
                 }
+//                }
             }
         }
     }
