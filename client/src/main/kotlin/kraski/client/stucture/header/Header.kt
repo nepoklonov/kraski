@@ -188,7 +188,27 @@ class HeaderComponent : RComponent<RoutedProps, HeaderState>() {
                         }
                     }
                 }
-                listOf(Section.Join, Section.About, Section.Chuvashia, Section.News).forEach {
+                listOf(Section.Join).forEach {
+                    navLink(to = it.url) {
+                        styledLi {
+                            css {
+                                backgroundColor = redKraskiWithOpacity(0.8)
+                                hover {
+                                    backgroundColor = redKraskiWithOpacity(0.9)
+                                }
+                                active {
+                                    backgroundColor = redKraski
+                                    padding(11.px, 0.px, 9.px, 0.px)
+                                }
+                                fontWeight = FontWeight.bold
+                                textDecoration = TextDecoration.none
+                                color = lightYellow
+                            }
+                            +it.title
+                        }
+                    }
+                }
+                listOf(Section.About, Section.Chuvashia, Section.News).forEach {
                     navLink(to = it.url) {
                         styledLi {
                             css {
