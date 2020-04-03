@@ -1,5 +1,6 @@
 .git
 .gradle
+.DS_Store
 build/
 
 main.bundle.js
