@@ -1,0 +1,32 @@
+[
+   {
+      "name": "Общественная приёмная депутата Государственной Думы ФС РФ Алёны Игоревны Аршиновой.",
+      "logo": "arshinova_info.png",
+      "link": "http://arshinova.info/"
+   },
+   {
+      "name": "Министерство культуры, по делам национальностей и архивного дела Чувашской Республики.",
+      "logo": "culture_cap_ru.png",
+      "link": "http://culture.cap.ru/"
+   },
+   { 
+      "name": "Министерство образования и молодежной политики Чувашской Республики.",
+      "logo": "obrazov_cap_ru.png",
+      "link": "http://obrazov.cap.ru/"
+   },
+   { 
+      "name": "Национальная библиотека Чувашской Республики.", 
+      "logo": "nbchr_ru.png",
+      "link": "http://www.nbchr.ru/"
+   },
+   {
+      "name": "Чувашский государственный институт культуры и искусств.",
+      "logo": "chgiki_ru.png",
+      "link": "http://chgiki.ru/"
+   },
+   {
+      "name": "Чувашский государственный институт культуры и искусств",
+      "logo": "bibliozao_ru.png",
+      "link": "https://bibliozao.ru"
+   }
+]

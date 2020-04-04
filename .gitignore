@@ -4,17 +4,5 @@
 .idea
 build/
 
-main.bundle.js
-kraski_server.jar
-
-/uploads/images/art
-/uploads/images/photos
-
-/uploads
-/json
-/fonts
-/images
-/documents
-/data
-
-favicon.ico
+/server/uploads
+/server/data
