@@ -7,6 +7,7 @@ import kraski.common.interpretation.DirRef
 import kraski.common.interpretation.Pages
 import kraski.common.models.AdminLogin
 import kraski.common.models.News
+import kraski.common.models.Raskraska
 import kraski.common.models.Review
 import kotlinx.serialization.KSerializer
 import kotlin.reflect.KClass
@@ -30,6 +31,7 @@ enum class FormType(
 
     ReviewForm(Review::class, Review.serializer(), DirRef.root, "Отзывы"),
     NewsForm(News::class, News.serializer(), Pages.Uploads.Images.news, "Новости"),
+    RaskraskaForm(Raskraska::class, Raskraska.serializer(), Pages.Uploads.Images.raskraska, "Раскраски"),
     Admin(AdminLogin::class, AdminLogin.serializer(), DirRef.root, "Админка");
 
     val getSerializer: KSerializer<out AnyForm>

@@ -25,8 +25,10 @@ enum class Method(val methodName: String, val fileTransfer: Boolean = false) {
     GetGeneralInfo("api/get-general-info"),
     AboutGetPhotos("api/about/get-photos"),
     NewsGetAll("api/news/get-all"),
+    RaskraskaGetAll("api/raskraska/get-all"),
     ReviewsGetAll("api/reviews/get-all"),
     CWNewsGetAll("api/cw/news/get-all"),
+    CWRaskraskaGetAll("api/cw/raskraska/get-all"),
     AdminParticipantsGetAll("api/admin/participants/get-all"),
     AdminGetFileById("api/admin/get-file"),
     AdminCheck("api/admin/check")
@@ -104,10 +106,16 @@ sealed class Request(val method: Method) {
     class NewsGetAll(val width: Int, val height: Int): Request(Method.NewsGetAll)
 
     @Serializable
+    class RaskraskaGetAll(val width: Int, val height: Int): Request(Method.RaskraskaGetAll)
+
+    @Serializable
     class ReviewsGetAll: Request(Method.ReviewsGetAll)
 
     @Serializable
     class CWNewsGetAll(val width: Int, val height: Int): Request(Method.CWNewsGetAll)
+
+    @Serializable
+    class CWRaskraskaGetAll(val width: Int, val height: Int): Request(Method.CWRaskraskaGetAll)
 
     @Serializable
     class AdminParticipantGetAll(val formType: FormType): Request(Method.AdminParticipantsGetAll)

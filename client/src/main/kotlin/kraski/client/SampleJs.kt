@@ -74,7 +74,7 @@ fun main() {
         browserRouter {
             switch {
                 listOf(Section.Main, Section.Admin,
-                        Section.Join, Section.About, Section.Chuvashia, Section.News,
+                        Section.Join, Section.About, Section.Chuvashia, Section.News, Section.Raskraska,
                         Section.Gallery, Section.Team, Section.Partners, Section.Contacts).forEach(::primitiveRoute)
             }
         }

@@ -120,6 +120,7 @@ fun Route.startAPI() {
     startStaticImagesGetVersionAPI()
 
     startNewsGetAllAPI()
+    startRaskraskaGetAllAPI()
     startReviewsGetAllAPI()
 
     startAdminAPI()

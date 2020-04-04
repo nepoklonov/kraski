@@ -1,0 +1,26 @@
+[
+  {
+    "name": "e-mail",
+    "logo": "ya_mail.png",
+    "link": "https://mail.yandex.ru",
+    "text": "kraski-chuvashii@yandex.ru"
+  },
+  {
+    "name": "vk",
+    "logo": "vk.png",
+    "link": "https://vk.com/kraski_chuvashii",
+    "text": "vk.com/kraski_chuvashii"
+  },
+  {
+    "name": "facebook",
+    "logo": "fb.png",
+    "link": "https://www.facebook.com/kraskichuvashii",
+    "text": "facebook.com/kraskichuvashii"
+  },
+  {
+    "name": "instagram",
+    "logo": "inst.png",
+    "link": "https://instagram.com/kraski_chuvashii",
+    "text": "instagram.com/kraski_chuvashii"
+  }
+]
