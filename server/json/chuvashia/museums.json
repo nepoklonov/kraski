@@ -1,0 +1,128 @@
+[
+	{
+		"link": "http://chnmuseum.ru/", 
+		"name": "Чувашский национальный музей",
+		"comment": "",
+		"address": "г. Чебоксары, Красная площадь, 5"
+	},
+	{
+		"link": "http://www.chnm.ru/", 
+		"name": "Музейно-выставочный центр" ,
+		"comment": "Отделы этнографический и воинской славы, временные выставки.",
+		"address": "г. Чебоксары, бульвар К.Ефремова, 8"
+	},
+	{
+		"link": "http://www.artmuseum.ru/", 
+		"name": "Чувашский государственный художественный музей",
+		"comment": "",
+		"address": "г. Чебоксары, ул. Калинина, 60"
+	},
+	{
+		"link": "http://www.cheb.ru/museums/hg4k.html", 
+		"name": "Художественная галерея (на Волге)" ,
+		"comment": "Отдел русского и зарубежного искусства ЧГХМ",
+		"address": "г. Чебоксары, ул. К. Иванова, 4"
+	},
+	{
+		"link": "http://www.cheb.ru/museums/chapay46al.html", 
+		"name": "Музей В. И. Чапаева" ,
+		"comment": "",
+		"address": "г. Чебоксары, пр. Ленина, 46А (сквер Чапаева)"
+	},
+	{
+		"link": "http://www.cheb.ru/museums/sovr1pb.html", 
+		"name": "Центр современного искусства" ,
+		"comment": "",
+		"address": "г. Чебоксары, Президентский бульвар, 1/15"
+	},
+	{
+		"link": "http://www.cheb.ru/museums/ivanov29l.html", 
+		"name": "Литературный музей им. К. Иванова" ,
+		"comment": "",
+		"address": "г. Чебоксары, ул. Дзержинского, 20"
+	},
+	{
+		"link": "http://www.cheb.ru/museums/sespel8.html", 
+		"name": "Литературный музей им. М.Сеспеля" ,
+		"comment": "",
+		"address": "г. Чебоксары, ул. Сеспеля, 8"
+	},
+	{
+		"link": "http://www.cheb.ru/museums/spirid.html", 
+		"name": "Музей-квартира Спиридонова М.С." ,
+		"comment": "",
+		"address": "г. Чебоксары, ул. Спиридонова, 1"
+	},
+	{
+		"link": "http://www.dnt21.ru/",
+		"name": "Дом народного творчества" ,
+		"comment": "",
+		"address": "г. Чебоксары, ул. К.Маркса, 32"
+	},
+	{
+		"link": "http://www.radugaart.ru/",
+		"name": "Культурно-выставочный центр «Радуга",
+		"comment": "",
+		"address": "г. Чебоксары, ул. Эльменя, 4А-1"
+	},
+	{
+		"link": "http://www.myaquarelle.com/", 
+		"name": "Галерея искусств «Акварель»" ,
+		"comment": "",
+		"address": "г. Чебоксары, ул. Сверчкова, 6Б"
+	},
+	{
+		"link": "http://czl-21.ru/museum", 
+		"name": "Республиканский музей леса" ,
+		"comment": "",
+		"address": "г. Чебоксары, поселок Лесной, 10"
+	},
+	{
+		"link": "http://www.cheb.ru/museums/geolog12ke.html", 
+		"name": "Геологический музей" ,
+		"comment": "",
+		"address": "г. Чебоксары, бульвар К.Ефремова, 12"
+	},
+	{
+		"link": "http://www.cheb.ru/museums/po_chap.html", 
+		"name": "Музей П/о им. В. И. Чапаева" ,
+		"comment": "",
+		"address": "г. Чебоксары, ул. Промышленная-ЮЗР, 7Д"
+	},
+	{
+		"link": "http://www.cheb.ru/museums/mil3e.html", 
+		"name": "Музей истории милиции Чувашии" ,
+		"comment": "",
+		"address": "г. Чебоксары, ул. Энгельса, 3"
+	},
+	{
+		"link": "http://www.cheb.ru/museums/pozhar37km.html", 
+		"name": "Пожарно-техническая выставк",
+		"comment": "",
+		"address": "г Чебоксары, ул. К.Маркса, 37"
+	},
+	{
+		"link": "http://www.cheb.ru/museums/novch.html", 
+		"name": "Музей истории Новочебоксарска",
+		"comment": "Пока не работает. Внутри ведутся отделочные работы.",
+		"address": ":г.Новочебоксарск, ул. Винокурова, 42А"
+	},
+	{
+		"link": "http://www.cheb.ru/museums/nov_hm.html", 
+		"name": "Художественный музей Новочебоксарска",
+		"comment": "",
+		"address": "г. Новочебоксарск, бульвар Гидростроителей, 4"
+	},
+	{
+		"link": "http://www.cheb.ru/museums/gidroenerg34.html", 
+		"name": "Музей гидроэнергетики",
+		"comment": "",
+		"address": "г. Новочебоксарск, ул. Набережная, 34"
+	},
+	{
+		"link": "http://www.kosmos-memorial.narod.ru/", 
+		"name": "Мемориальный комплекс летчика-космонавта СССР А. Г.Николаева",
+		"comment": "",
+		"address": "Чувашская Республика, с. Шоршелы, ул. Парковая 1"	
+	}
+]

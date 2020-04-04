@@ -160,6 +160,18 @@ class AdminComponent(pageProps: PageProps) : StandardPageComponent<AdminState>(p
                         }
                     }
                 }
+                section("Добавить раскраску:") {
+                    styledDiv {
+                        css {
+                            backgroundColor = Color.white
+                        }
+                        child(Contest::class) {
+                            attrs {
+                                formType = FormType.RaskraskaForm
+                            }
+                        }
+                    }
+                }
 
 //                forms("ЭтноТур", FormType.Art)
 //                forms("Лики земли Карельской", FormType.Photos)

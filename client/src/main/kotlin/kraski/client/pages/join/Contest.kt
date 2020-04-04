@@ -159,6 +159,9 @@ class Contest(props: ContestProps) : RComponent<ContestProps, ContestState>(prop
                         FormType.NewsForm -> {
                             +"Новость добавлена!"
                         }
+                        FormType.RaskraskaForm -> {
+                            +"Раскраска добавлена!"
+                        }
                         else -> {
                             +"Спасибо за участие в акции, работа успешно загружена! "
                             +"В ближайшее время на указанную почту будет отправлен сертификат."
@@ -176,6 +179,7 @@ class Contest(props: ContestProps) : RComponent<ContestProps, ContestState>(prop
                         +"Загрузить ещё "
                         +when (props.formType) {
                             FormType.NewsForm -> "новость"
+                            FormType.RaskraskaForm -> "раскраску"
                             else -> "работу"
                         }
                         +" ->"

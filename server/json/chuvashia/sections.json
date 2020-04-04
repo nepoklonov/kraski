@@ -1,0 +1,37 @@
+[
+  {
+    "name": "literature",
+    "title": "Литература о Чувашии",
+    "logo": "literature.jpg"
+  },
+  {
+    "name": "archives",
+    "title": "Архивы Чувашии",
+    "logo": "archives.jpg"
+  },
+  {
+    "name": "symbols",
+    "title": "Государственные символы Чувашии",
+    "logo": "symbols.jpg"
+  },
+  {
+    "name": "palaces",
+    "title": "Дворцы культуры Чувашии",
+    "logo": "palaces.jpg"
+  },
+  {
+    "name": "libraries",
+    "title": "Библиотеки Чувашии",
+    "logo": "libraries.jpg"
+  },
+  {
+    "name": "theatres",
+    "title": "Театры Чувашии",
+    "logo": "theatres.jpg"
+  },
+  {
+    "name": "museums",
+    "title": "Музеи Чувашии",
+    "logo": "museums.jpg"
+  }
+]
