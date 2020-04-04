@@ -191,6 +191,7 @@ object Pages {
             val art = images / "art"
             val photos = images / "photos"
             val news = images / "news"
+
         }
 
         val other = uploads / "other"

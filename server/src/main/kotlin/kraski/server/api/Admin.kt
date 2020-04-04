@@ -111,8 +111,6 @@ fun Route.startTasksAPI() {
                         +"Welcome to the Task Center"
                     }
                     loggedTransaction {
-
-
                         News::class.getModelTable().deleteAll()
                     }
                     loggedTransaction {
