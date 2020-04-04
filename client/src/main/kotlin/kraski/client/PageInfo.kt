@@ -5,6 +5,7 @@ import kraski.client.pages.chuvashia.*
 import kraski.client.stucture.PageProps
 import kraski.common.interpretation.*
 import kraski.client.pages.NewsComponent
+import kraski.client.pages.RaskraskaComponent
 import react.RComponent
 import react.RState
 import kotlin.reflect.KClass
@@ -49,6 +50,7 @@ class Section(val self: PageInfo, val pages: List<PageInfo>) {
                 PageInfo(Pages.Chuvashia.museums, "Музеи Чувашии", Museums::class)
                 )
         val News = Section(Pages.news, "Наши новости", NewsComponent::class)
+        val Raskraska = Section(Pages.raskraska, "Раскраски", RaskraskaComponent::class)
 
         val Gallery = Section(Pages.gallery, "Работы участников", GalleryComponent::class,
                 PageInfo(Pages.Gallery.art, "Конкурс художественного творчества имени А. А. Кокеля", GalleryComponent::class),

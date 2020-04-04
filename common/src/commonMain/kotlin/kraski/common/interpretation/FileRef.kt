@@ -135,6 +135,7 @@ object Pages {
     val about = root / "about"
     val contacts = root / "contacts"
     val news = root / "news"
+    val raskraska = root / "raskraska"
     val partners = root / "partners"
     val team = root / "team"
 
@@ -191,6 +192,7 @@ object Pages {
             val art = images / "art"
             val photos = images / "photos"
             val news = images / "news"
+            val raskraska = images / "raskraska"
         }
 
         val other = uploads / "other"
