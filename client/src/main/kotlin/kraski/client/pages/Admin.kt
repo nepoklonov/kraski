@@ -172,6 +172,18 @@ class AdminComponent(pageProps: PageProps) : StandardPageComponent<AdminState>(p
                         }
                     }
                 }
+                section("Добавить сказку:") {
+                    styledDiv {
+                        css {
+                            backgroundColor = Color.white
+                        }
+                        child(Contest::class) {
+                            attrs {
+                                formType = FormType.StoriesForm
+                            }
+                        }
+                    }
+                }
 
 //                forms("ЭтноТур", FormType.Art)
 //                forms("Лики земли Карельской", FormType.Photos)
