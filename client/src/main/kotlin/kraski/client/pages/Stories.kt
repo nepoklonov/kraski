@@ -7,7 +7,7 @@ import kraski.client.stucture.PageState
 import kraski.client.stucture.StandardPageComponent
 import kraski.common.AnswerType
 import kraski.common.Request
-import kraski.common.models.NewsWithSrc
+import kraski.common.models.StoriesWithSrc
 import kraski.common.models.participants.FormType
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -21,19 +21,19 @@ import react.dom.InnerHTML
 import react.setState
 import styled.*
 
-interface NewsState : PageState {
-    var news: List<NewsWithSrc>
+interface StoriesState : PageState {
+    var stories: List<StoriesWithSrc>
     var isAdmin: Boolean
     var editId: Int?
 }
 
-class NewsComponent(props: PageProps) : StandardPageComponent<NewsState>(props) {
+class StoriesComponent(props: PageProps) : StandardPageComponent<StoriesState>(props) {
     init {
-        state.news = listOf()
+        state.stories = listOf()
         state.isAdmin = false
-        Request.NewsGetAll(400, 0).send(NewsWithSrc.serializer().list) {
+        Request.StoriesGetAll(400, 0).send(StoriesWithSrc.serializer().list) {
             setState {
-                news = it
+                stories = it
             }
         }
         GlobalScope.launch {
@@ -44,7 +44,7 @@ class NewsComponent(props: PageProps) : StandardPageComponent<NewsState>(props) 
         }
     }
 
-    private fun RBuilder.editButton(news: NewsWithSrc) {
+    private fun RBuilder.editButton(stories: StoriesWithSrc) {
         styledSpan {
             css {
                 marginLeft = 10.px
@@ -54,14 +54,14 @@ class NewsComponent(props: PageProps) : StandardPageComponent<NewsState>(props) 
                 cursor = Cursor.pointer
             }
             attrs.onClickFunction = {
-                setState { editId = news.news.id }
+                setState { editId = stories.stories.id }
             }
             +"редактировать"
         }
     }
 
     override fun StyledDOMBuilder<*>.page() {
-        state.news.forEach { news ->
+        state.stories.forEach { stories ->
             styledDiv {
                 css {
                     margin(50.px, 0.px)
@@ -70,34 +70,26 @@ class NewsComponent(props: PageProps) : StandardPageComponent<NewsState>(props) 
                 }
                 styledH3 {
                     css { color = redKraski }
-                    +news.news.header
-                    if (state.isAdmin) editButton(news)
+                    +stories.stories.header
+                    if (state.isAdmin) editButton(stories)
                 }
                 styledP {
                     css {
                         color = gray50Color
                     }
-                    +news.news.date.split('.').reversed().joinToString(".") { it }
-                    if (news.news.author.isNotEmpty()) {
-                        +" — "
-                        +news.news.author
+                    if (stories.stories.author.isNotEmpty()) {
+                        +stories.stories.author
                     }
                 }
                 styledDiv {
                     css { margin(10.px, 0.px) }
-                    if (news.src != "") styledImg(src = news.src) {
-                        css {
-                            width = 400.px
-                            float = Float.right
-                            marginLeft = 30.px
-                        }
+                    styledDiv {
+                        css { margin(0.px, 10.px)}
+                        attrs["dangerouslySetInnerHTML"] = InnerHTML(stories.stories.shortContent)
                     }
                     styledDiv {
-                        css { margin(0.px, 10.px) }
-                        attrs["dangerouslySetInnerHTML"] = InnerHTML(news.news.shortContent)
-                    }
-                    styledDiv {
-                        attrs["dangerouslySetInnerHTML"] = InnerHTML(news.news.content)
+                        css { margin(10.px, 10.px, 10.px, 10.px)}
+                        attrs["dangerouslySetInnerHTML"] = InnerHTML(stories.stories.content)
                     }
                 }
             }
@@ -117,7 +109,7 @@ class NewsComponent(props: PageProps) : StandardPageComponent<NewsState>(props) 
                         child(Contest::class) {
                             attrs {
                                 editId = state.editId
-                                formType = FormType.NewsForm
+                                formType = FormType.StoriesForm
                             }
                         }
                     }

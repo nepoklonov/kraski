@@ -7,6 +7,8 @@ import kraski.common.models.News
 import kraski.common.models.NewsWithSrc
 import kraski.common.models.Raskraska
 import kraski.common.models.RaskraskaWithSrc
+import kraski.common.models.Stories
+import kraski.common.models.StoriesWithSrc
 import kraski.common.models.Review
 import org.jetbrains.exposed.sql.SortOrder
 
@@ -32,7 +34,16 @@ fun getAllRaskraska(width: Int, height: Int): List<RaskraskaWithSrc> {
         }
     }
 }
-
+fun getAllStories(width: Int, height: Int): List<StoriesWithSrc> {
+    return loggedTransaction {
+        Stories::class.getModelTable().let { table ->
+            table.selectAllModelsOrderBy(table[Stories::header], SortOrder.DESC).map { stories ->
+                val src = ""
+                StoriesWithSrc(stories, src)
+            }
+        }
+    }
+}
 
 fun getAllReview(): List<Review> = loggedTransaction {
     Review::class.getModelTable().selectAllModels()

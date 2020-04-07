@@ -121,6 +121,7 @@ fun Route.startAPI() {
 
     startNewsGetAllAPI()
     startRaskraskaGetAllAPI()
+    startStoriesGetAllAPI()
     startReviewsGetAllAPI()
 
     startAdminAPI()

@@ -208,7 +208,7 @@ class HeaderComponent : RComponent<RoutedProps, HeaderState>() {
                         }
                     }
                 }
-                listOf(Section.About, Section.Chuvashia, Section.News, Section.Raskraska).forEach {
+                listOf(Section.About, Section.Chuvashia, Section.News, Section.Stories, Section.History).forEach {// Section.Raskraska, Section.History
                     navLink(to = it.url) {
                         styledLi {
                             css {
