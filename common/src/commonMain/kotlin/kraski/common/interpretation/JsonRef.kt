@@ -11,6 +11,7 @@ enum class JsonRef(private val jsonName: String, val serializer: KSerializer<out
     TeamJson("team", Team.serializer()),
     ContactsJson("contacts", Contact.serializer().list),
     PartnersJson("partners", Partner.serializer().list),
+    HistoryJson("history", Partner.serializer().list),
     LogosJson("logos", Partner.serializer().list),
     ChuvashiaSectionsJson("chuvashia/sections", ChuvashiaSection.serializer().list),
     ChuvashiaLiteratureJson("chuvashia/literature", LiteratureJSON.serializer().list),

@@ -65,6 +65,7 @@ class Section(val self: PageInfo, val pages: List<PageInfo>) {
         )
         val Team = Section(Pages.team, "Команда проекта", TeamComponent::class)
         val Partners = Section(Pages.partners, "Партнёры", PartnersComponent::class)
+        val History = Section(Pages.history, "История Чувашии", HistoryComponent::class)
         val Contacts = Section(Pages.contacts, "Контакты", ContactsComponent::class)
 
 

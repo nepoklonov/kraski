@@ -39,7 +39,8 @@ fun RBuilder.logos(partners: List<Partner>, logosHeight: LinearDimension, topMar
                 }
                 styledImg(src = (ImageDirs.partners file partner.logo).path) {
                     css {
-                        maxWidth = 40.pct
+                        maxWidth = 60.pct
+//                        maxHeight = 50.pct
                         minWidth = 100.px
                         margin(0.px, 0.px, 20.px, 0.px)
                     }

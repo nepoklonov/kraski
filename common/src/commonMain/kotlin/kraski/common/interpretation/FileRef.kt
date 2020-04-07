@@ -138,6 +138,7 @@ object Pages {
     val raskraska = root / "raskraska"
     val stories = root / "stories"
     val partners = root / "partners"
+    val history = root / "history"
     val team = root / "team"
 
     object About {
