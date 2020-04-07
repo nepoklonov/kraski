@@ -59,6 +59,13 @@ class HistoryComponent(props: PageProps) : StandardPageComponent<YamlListState<P
     }
 
     override fun StyledDOMBuilder<*>.page() {
+        styledDiv {
+            css {
+                textAlign = TextAlign.left
+                alignSelf = Align.flexEnd
+            }
+            +"Виртуальные выставки из фондов Чувашского национального музея и Государственного исторического архива Чувашской Республики"
+        }
         logos(state.yaml, 100.px, 100.px)
     }
 }
