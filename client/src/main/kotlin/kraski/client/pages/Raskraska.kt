@@ -7,22 +7,25 @@ import kraski.client.stucture.PageState
 import kraski.client.stucture.StandardPageComponent
 import kraski.common.AnswerType
 import kraski.common.Request
-import kraski.common.models.RaskraskaWithSrc
+import kraski.common.models.RaskraskaWithSrcs
 import kraski.common.models.participants.FormType
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.css.*
 import kotlinx.css.properties.TextDecorationLine
+import kotlinx.css.properties.border
+import kotlinx.css.properties.borderLeft
 import kotlinx.css.properties.textDecoration
 import kotlinx.html.js.onClickFunction
 import kotlinx.serialization.list
+import kraski.client.elements.image.imageInDiv
 import react.RBuilder
-import react.dom.InnerHTML
 import react.setState
 import styled.*
+import kotlin.math.abs
 
 interface RaskraskaState : PageState {
-    var raskraska: List<RaskraskaWithSrc>
+    var raskraska: List<RaskraskaWithSrcs>
     var isAdmin: Boolean
     var editId: Int?
 }
@@ -31,7 +34,7 @@ class RaskraskaComponent(props: PageProps) : StandardPageComponent<RaskraskaStat
     init {
         state.raskraska = listOf()
         state.isAdmin = false
-        Request.RaskraskaGetAll(400, 0).send(RaskraskaWithSrc.serializer().list) {
+        Request.RaskraskaGetAll(600, 400).send(RaskraskaWithSrcs.serializer().list) {
             setState {
                 raskraska = it
             }
@@ -44,7 +47,7 @@ class RaskraskaComponent(props: PageProps) : StandardPageComponent<RaskraskaStat
         }
     }
 
-    private fun RBuilder.editButton(raskraska: RaskraskaWithSrc) {
+    private fun RBuilder.editButton(raskraska: RaskraskaWithSrcs) {
         styledSpan {
             css {
                 marginLeft = 10.px
@@ -74,15 +77,45 @@ class RaskraskaComponent(props: PageProps) : StandardPageComponent<RaskraskaStat
                     if (state.isAdmin) editButton(raskraska)
                 }
                 styledDiv {
-                    css { margin(10.px, 0.px) }
-                    if (raskraska.src != "") styledImg(src = raskraska.src) {
-                        css {
-                            width = 400.px
-                        }
+                    css {
+                        borderLeft(2.px, BorderStyle.solid, redKraski)
+                        margin(10.px, 0.px)
+                        display = Display.flex
                     }
-                    if (raskraska.src != "") styledImg(src = raskraska.src) {
+                    styledDiv {
                         css {
-                            width = 400.px
+                            margin(0.px, 50.px, 20.px, 20.px)
+                            width = 600.px
+                            height = 400.px
+                            position = Position.relative
+                        }
+                        if (raskraska.raskraskaSrc.first != "")
+                            imageInDiv(raskraska.raskraskaSrc.first, "contain") {
+                                css {
+                                    +MainStyles.full
+                                    backgroundColor = Color.white
+                                }
+                            }
+                        if (raskraska.originalSrc.first != "")
+                            imageInDiv(raskraska.originalSrc.second, "contain") {
+                                css {
+                                    +MainStyles.full
+                                    backgroundColor = Color.white
+                                    opacity = 0
+                                    hover { opacity = 1 }
+                                }
+                            }
+                    }
+                    styledDiv {
+                        styledH3 {
+                            styledA(href = raskraska.raskraskaSrc.second) {
+                                +"Скачать раскраску"
+                            }
+                        }
+                        styledH3 {
+                            styledA(href = raskraska.originalSrc.second) {
+                                +"Скачать оригинал"
+                            }
                         }
                     }
                 }

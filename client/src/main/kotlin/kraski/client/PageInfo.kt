@@ -51,8 +51,8 @@ class Section(val self: PageInfo, val pages: List<PageInfo>) {
                 PageInfo(Pages.Chuvashia.museums, "Музеи Чувашии", Museums::class)
                 )
         val News = Section(Pages.news, "Наши новости", NewsComponent::class)
-        val Raskraska = Section(Pages.raskraska, "Раскраски", RaskraskaComponent::class)
-        val Stories = Section(Pages.stories, "Сказки", StoriesComponent::class)
+        val Raskraska = Section(Pages.raskraska, "Раскрась Чувашию", RaskraskaComponent::class)
+        val Stories = Section(Pages.stories, "Сказки Чувашии", StoriesComponent::class)
 
         val Gallery = Section(Pages.gallery, "Работы участников", GalleryComponent::class,
                 PageInfo(Pages.Gallery.art, "Конкурс художественного творчества имени А. А. Кокеля", GalleryComponent::class),

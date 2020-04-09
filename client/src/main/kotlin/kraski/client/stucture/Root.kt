@@ -35,7 +35,7 @@ class RootComponent(props: RootProps) : RComponent<RootProps, RState>(props) {
                         "footer footer footer footer footer"
                         )
                 gridTemplateRows = GridTemplateRows("60px 0 140px 40px auto 40px auto")
-                gridTemplateColumns = GridTemplateColumns("minmax(60px, 3fr) 140px minmax(40px, 2fr) minmax(600px, 4000px) minmax(60px, 3fr)")
+                gridTemplateColumns = GridTemplateColumns("minmax(60px, 3fr) 160px minmax(40px, 2fr) minmax(600px, 4000px) minmax(60px, 3fr)")
             }
             child(HeaderComponent::class) {
                 attrs.current = props.current

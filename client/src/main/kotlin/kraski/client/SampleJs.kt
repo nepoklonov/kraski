@@ -13,6 +13,7 @@ import react.router.dom.switch
 import styled.StyledComponents
 import styled.injectGlobal
 import kotlin.browser.document
+import kotlin.browser.window
 import kotlin.js.Date
 
 const val scale = 1.0

@@ -5,7 +5,7 @@ import kraski.common.Answer
 import kraski.common.Method
 import kraski.common.Request
 import kraski.common.models.NewsWithSrc
-import kraski.common.models.RaskraskaWithSrc
+import kraski.common.models.RaskraskaWithSrcs
 import kraski.common.models.StoriesWithSrc
 import kraski.common.models.Review
 import kraski.server.database.getAllNews
@@ -22,7 +22,7 @@ fun Route.startNewsGetAllAPI() = listenAndAutoRespond<Request.NewsGetAll>(Method
 
 fun Route.startRaskraskaGetAllAPI() = listenAndAutoRespond<Request.RaskraskaGetAll>(Method.RaskraskaGetAll) { request, _ ->
     val raskraska = getAllRaskraska(request.width, request.height)
-    Answer.ok(RaskraskaWithSrc.serializer().list, raskraska)
+    Answer.ok(RaskraskaWithSrcs.serializer().list, raskraska)
 }
 
 fun Route.startStoriesGetAllAPI() = listenAndAutoRespond<Request.StoriesGetAll>(Method.StoriesGetAll) { request, _ ->

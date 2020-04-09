@@ -1,18 +1,18 @@
 package kraski.client.pages
 
-import kraski.client.send
-import kraski.client.stucture.*
-import kraski.common.Request
 import kotlinx.serialization.list
 import kotlinx.serialization.serializer
-import kraski.common.FileType
+import kraski.client.send
+import kraski.client.stucture.YamlListState
+import kraski.client.stucture.initYamlListState
+import kraski.client.stucture.updateYamlListState
+import kraski.common.Request
 import kraski.common.models.participants.FormType
 import react.RBuilder
 import react.RComponent
 import react.RProps
 import react.dom.br
 import react.dom.h3
-import styled.StyledDOMBuilder
 
 interface AntiProps : RProps {
     var formType: FormType

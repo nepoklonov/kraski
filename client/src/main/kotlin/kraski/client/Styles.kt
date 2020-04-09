@@ -43,6 +43,14 @@ fun getPageColor(pageRef: PageRef, isDark: Boolean): RGBA {
 
 object MainStyles : StyleSheet("main") {
 
+    val full by css {
+        position = Position.absolute
+        top = 0.px
+        left = 0.px
+        right = 0.px
+        bottom = 0.px
+    }
+
     val tapable by css {
         cursor = Cursor.pointer
         opacity = 0.4

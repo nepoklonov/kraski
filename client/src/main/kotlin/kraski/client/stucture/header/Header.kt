@@ -82,6 +82,7 @@ class HeaderComponent : RComponent<RoutedProps, HeaderState>() {
                 height = 100.pct
                 backgroundSize = "50%"
                 backgroundImage = Image("url(/images/design/background.png)")
+                justifySelf = JustifyContent.center
             }
         }
         styledDiv {
@@ -208,7 +209,8 @@ class HeaderComponent : RComponent<RoutedProps, HeaderState>() {
                         }
                     }
                 }
-                listOf(Section.About, Section.Chuvashia, Section.News, Section.Stories, Section.History).forEach {// Section.Raskraska, Section.History
+                listOf(Section.About, Section.News, Section.Stories, Section.Raskraska, Section.History,
+                    Section.Chuvashia).forEach {
                     navLink(to = it.url) {
                         styledLi {
                             css {
