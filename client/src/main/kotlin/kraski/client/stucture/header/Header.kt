@@ -24,9 +24,14 @@ import kotlin.browser.window
 import kotlin.js.Date
 import kotlin.reflect.KMutableProperty1
 
+import kotlinx.html.id
+import react.dom.InnerHTML
+
 val DAY_OF_THE_END = Date.UTC(2020, 4, 28).toLong()
 val DAY_OF_THE_STOP = Date.UTC(2020, 1, 20).toLong()
 const val msInDay = 1000 * 3600 * 24
+
+var flag = true
 
 fun getDaysLeft() = (DAY_OF_THE_END / msInDay - Date.now().toLong() / msInDay).toInt()
 //fun getAccessDaysLeft() = (DAY_OF_THE_STOP / msInDay - Date.now().toLong() / msInDay).toInt()
@@ -256,6 +261,53 @@ class HeaderComponent : RComponent<RoutedProps, HeaderState>() {
             css {
                 backgroundColor = lightYellow
             }
+            styledDiv {
+                css {
+                    width = 100.pct
+                    height = 10.px
+                    background = "url(/images/design/three-up.png) round"
+                    backgroundSize = 14.px.toString()
+                }
+            }
+            styledDiv {
+                css {
+//                    align = center
+                    height = 300.px
+                    padding(20.px, 12.pct)
+                    display = Display.flex
+                    alignItems = Align.center
+                    flexWrap = FlexWrap.wrap
+//                    justifyContent = JustifyContent.spaceBetween
+                }
+                styledDiv {
+                    attrs.id = "vk_groups"
+                    css {
+//                        width = 280.px
+                        height = 280.px
+                        padding(5.px, 20.px)
+                    }
+                    if (flag) {
+                        js("VK.Widgets.Group(\"vk_groups\", {mode: 4, width: \"280\", height: \"280\"}, 89878265);")
+                        flag = false
+                    }
+                }
+
+                styledDiv {
+                    css {
+//                        width = 280.px
+                        height = 280.px
+                        padding(5.px, 20.px)
+                    }
+                    attrs["dangerouslySetInnerHTML"] = InnerHTML("<tr style = \"\"><td height = \"28\" style = \"line-height:28px;\"></td></tr><tr><td style = \"\"><table border = \"0\" width = \"280\" cellspacing = \"0\" cellpadding = \"0\" style = \"border-collapse:separate;background-color:#ffffff;border:1px solid #dddfe2;border-radius:3px;font-family:Helvetica, Arial, sans-serif;margin:0px auto;\"><tr style = \"padding-bottom: 8px;\"><td style = \"\"><img class = \"img\" src = \"https://scontent-dus1-1.xx.fbcdn.net/v/t31.0-0/c0.0.968.1000a/s526x296/28947508_797970450388630_4725539843322691634_o.jpg?_nc_cat=111&amp;_nc_sid=ca434c&amp;_nc_ohc=GCDEgQM9q3gAX_TVX-Y&amp;_nc_ht=scontent-dus1-1.xx&amp;oh=329556566ba0185e05687518b8ec3ef2&amp;oe=5EB61D7B\" width = \"280\" height = \"146\" alt = \"\" /></td></tr><tr><td style = \"font-size:14px;font-weight:bold;padding:8px 8px 0px 8px;text-align:center;\">KAIST Ballroom Dances</td></tr><tr><td style = \"color:#90949c;font-size:12px;font-weight:normal;text-align:center;\">Public group · 44 members</td></tr><tr><td style = \"padding:8px 12px 12px 12px;\"><table border = \"0\" cellspacing = \"0\" cellpadding = \"0\" style = \"border-collapse:collapse;width:100%;\"><tr><td style = \"background-color:#4267b2;border-radius:3px;text-align:center;\"><a style = \"color:#3b5998;text-decoration:none;cursor:pointer;width:100%;\" href = \"https://www.facebook.com/plugins/group/join/popup/?group_id=418951248530096&amp;source=email_campaign_plugin\" target = \"_blank\" rel = \"noopener\"><table border = \"0\" cellspacing = \"0\" cellpadding = \"3\" align = \"center\" style = \"border-collapse:collapse;\"><tr><td style = \"border-bottom:3px solid #4267b2;border-top:3px solid #4267b2;color:#FFF;font-family:Helvetica, Arial, sans-serif;font-size:12px;font-weight:bold;\">Join Group</td></tr></table></a></td></tr></table></td></tr><tr><td style = \"border-top:1px solid #dddfe2;font-size:12px;padding:8px 12px;\">Ballroom dance is a set of partner dances, which are enjoyed both socially and competitively around the world.\n" +
+                            "\n" +
+                            "                Standard:\n" +
+                            "                Waltz\n" +
+                            "                Viennese Waltz\n" +
+                            "                        Tango\n" +
+                            "                F...</td></tr></table></td></tr><tr style = \"\"><td height = \"28\" style = \"line-height:28px;\">&nbsp;</td></tr></table>")
+                }
+            }
+
             styledDiv {
                 css {
                     width = 100.pct

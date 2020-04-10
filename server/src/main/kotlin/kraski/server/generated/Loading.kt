@@ -30,6 +30,7 @@ fun Route.generateLoadingHTML(path: String) {
                         }
                     }
                 }
+                script(src="https://vk.com/js/api/openapi.js?167"){}
                 script(src = "/main.bundle.js") {}
             }
         }
