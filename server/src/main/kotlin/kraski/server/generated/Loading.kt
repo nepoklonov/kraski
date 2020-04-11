@@ -30,6 +30,9 @@ fun Route.generateLoadingHTML(path: String) {
                         }
                     }
                 }
+//                script(src="/inwidget/index.php") {}
+                script(src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffacebook&tabs=timeline&width=280&height=280&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=1198269693659049"){}
+                script(src="https://vk.com/js/api/openapi.js?167"){}
                 script(src = "/main.bundle.js") {}
             }
         }
