@@ -44,7 +44,7 @@ fun RBuilder.infoBlock(participantsAmount: Int, daysLeft: Int, contacts: List<Co
                 display = Display.flex
             }
             styledDiv {
-                participantsAmount.toString().forEach {
+                (participantsAmount+500).toString().forEach {
                     yellowSpan(it.toString())
                 }
                 yellowSpan(participantsAmount.getPluralForm("участник", "участника", "участников").toUpperCase()) {
