@@ -24,7 +24,7 @@ import kotlin.browser.window
 import kotlin.js.Date
 import kotlin.reflect.KMutableProperty1
 
-val DAY_OF_THE_END = Date.UTC(2020, 4, 28).toLong()
+val DAY_OF_THE_END = Date.UTC(2020, 6, 1).toLong()
 val DAY_OF_THE_STOP = Date.UTC(2020, 1, 20).toLong()
 const val msInDay = 1000 * 3600 * 24
 var flag = true

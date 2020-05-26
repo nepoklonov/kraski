@@ -71,7 +71,8 @@ class FileInputComponent : InputComponent<FileInputState>() {
                         "application/msword," +
                         "application/vnd.ms-powerpoint," +
                         "application/vnd.openxmlformats-officedocument.presentationml.presentation," +
-                        "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                        "application/vnd.openxmlformats-officedocument.wordprocessingml.document," +
+                        "video/*"
                 }
                 autoComplete = false
                 id = "input-" + props.name
