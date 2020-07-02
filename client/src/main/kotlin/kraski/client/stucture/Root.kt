@@ -11,6 +11,7 @@ import react.RComponent
 import react.RState
 import styled.css
 import styled.styledDiv
+import kotlin.browser.window
 
 interface RootProps : RoutedProps, PageProps {
     var pageComponent: PageClass
@@ -33,8 +34,8 @@ class RootComponent(props: RootProps) : RComponent<RootProps, RState>(props) {
                         ". left-nav . content .",
                         ". . . . .",
                         "footer footer footer footer footer"
-                        )
-                gridTemplateRows = GridTemplateRows("60px 0 140px 40px auto 40px auto")
+                )
+                gridTemplateRows = GridTemplateRows("auto 0 140px 40px auto 40px auto")
                 gridTemplateColumns = GridTemplateColumns("minmax(60px, 3fr) 160px minmax(40px, 2fr) minmax(600px, 4000px) minmax(60px, 3fr)")
             }
             child(HeaderComponent::class) {
