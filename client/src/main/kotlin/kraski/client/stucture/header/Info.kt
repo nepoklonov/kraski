@@ -37,14 +37,15 @@ fun RBuilder.infoBlock(participantsAmount: Int, daysLeft: Int, contacts: List<Co
             gridArea = "info"
             display = Display.flex
             justifyContent = JustifyContent.spaceBetween
-            alignItems = Align.center
+            padding(15.px)
         }
         styledDiv {
             css {
                 display = Display.flex
             }
             styledDiv {
-                (participantsAmount+500).toString().forEach {
+                css.whiteSpace = WhiteSpace.pre
+                (participantsAmount + 3000).toString().forEach {
                     yellowSpan(it.toString())
                 }
                 yellowSpan(participantsAmount.getPluralForm("участник", "участника", "участников").toUpperCase()) {
@@ -52,10 +53,15 @@ fun RBuilder.infoBlock(participantsAmount: Int, daysLeft: Int, contacts: List<Co
                 }
             }
             styledDiv {
-                daysLeft.toString().forEach {
-                    yellowSpan(it.toString())
+                css.whiteSpace = WhiteSpace.pre
+                if (daysLeft > 0) {
+                    daysLeft.toString().forEach {
+                        yellowSpan(it.toString())
+                    }
+                    yellowSpan(daysLeft.getPluralForm("день до финала", "дня до финала", "дней до финала").toUpperCase())
+                } else {
+                    yellowSpan(("прием работ завершен").toUpperCase())
                 }
-                yellowSpan(daysLeft.getPluralForm("день до финала", "дня до финала", "дней до финала").toUpperCase())
             }
         }
         styledDiv {

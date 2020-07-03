@@ -10,6 +10,7 @@ import kotlinx.css.*
 import kotlinx.css.properties.borderTop
 import kotlinx.serialization.list
 import kraski.client.gray50Color
+import react.dom.InnerHTML
 import styled.*
 
 class Symbols(pageProps: PageProps) : StandardPageComponent<YamlListState<SymbolJSON>>(pageProps) {
@@ -22,15 +23,12 @@ class Symbols(pageProps: PageProps) : StandardPageComponent<YamlListState<Symbol
         if (state.yaml != undefined) {
             state.yaml.forEach {
                 styledDiv {
-                    css {
-                        borderTop(1.px, BorderStyle.solid, gray50Color)
-                    }
+//                    css {
+//                        borderTop(1.px, BorderStyle.solid, gray50Color)
+//                    }
                     if (it.header != "") styledH3 {
                         css {
-                            fontSize = 16.px
-                            position = Position.relative
-                            top = (-14).px
-                            backgroundColor = Color.white
+                            fontSize = 24.px
                             padding(0.px, 20.px)
                             textAlign = TextAlign.center
                         }
@@ -38,19 +36,40 @@ class Symbols(pageProps: PageProps) : StandardPageComponent<YamlListState<Symbol
                     }
                     styledP {
                         css {
-                            display = Display.flex
-                            justifyContent = JustifyContent.center
+                            overflow = Overflow.hidden
                         }
-                        +it.text
-                        styledImg(src = (ImageDirs.chuvashia / it.picture).path) {
-                            css {
-                                margin(20.px)
-                                width = 400.px
+                        if (it.picture != "hymn.png") {
+                            styledImg(src = (ImageDirs.chuvashia / it.picture).path) {
+                                css {
+                                    padding(20.px)
+                                    width = 400.px
+                                    float = Float.right
+                                }
+                            }
+                            styledSpan {
+                                attrs["dangerouslySetInnerHTML"] = InnerHTML(it.text)
+                            }
+                        } else {
+                            styledP {
+                                attrs["dangerouslySetInnerHTML"] = InnerHTML(it.text)
+                            }
+                            styledImg(src = (ImageDirs.chuvashia / it.picture).path) {
+                                css {
+                                    width = 600.px
+                                    margin(20.px)
+                                    float = Float.left
+                                }
+                            }
+                            it.songs.forEach { song ->
+                                styledP {
+                                    css {
+                                        float = Float.left
+                                        margin(20.px)
+                                    }
+                                    attrs["dangerouslySetInnerHTML"] = InnerHTML(song.song)
+                                }
                             }
                         }
-                    }
-                    it.songs.forEach { song ->
-                        +song.song
                     }
                 }
             }
