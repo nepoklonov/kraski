@@ -1,6 +1,16 @@
 package kraski.client.pages
 
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.css.*
+import kotlinx.css.properties.TextDecorationLine
+import kotlinx.css.properties.borderLeft
+import kotlinx.css.properties.textDecoration
+import kotlinx.html.ATarget
+import kotlinx.html.js.onClickFunction
+import kotlinx.serialization.list
 import kraski.client.*
+import kraski.client.elements.image.imageInDiv
 import kraski.client.pages.join.Contest
 import kraski.client.stucture.PageProps
 import kraski.client.stucture.PageState
@@ -9,20 +19,11 @@ import kraski.common.AnswerType
 import kraski.common.Request
 import kraski.common.models.RaskraskaWithSrcs
 import kraski.common.models.participants.FormType
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.css.*
-import kotlinx.css.properties.TextDecorationLine
-import kotlinx.css.properties.border
-import kotlinx.css.properties.borderLeft
-import kotlinx.css.properties.textDecoration
-import kotlinx.html.js.onClickFunction
-import kotlinx.serialization.list
-import kraski.client.elements.image.imageInDiv
 import react.RBuilder
+import react.dom.p
+import react.dom.span
 import react.setState
 import styled.*
-import kotlin.math.abs
 
 interface RaskraskaState : PageState {
     var raskraska: List<RaskraskaWithSrcs>
@@ -108,12 +109,12 @@ class RaskraskaComponent(props: PageProps) : StandardPageComponent<RaskraskaStat
                     }
                     styledDiv {
                         styledH3 {
-                            styledA(href = raskraska.raskraskaSrc.second) {
+                            styledA(href = raskraska.raskraskaSrc.second, target = ATarget.blank) {
                                 +"Скачать раскраску"
                             }
                         }
                         styledH3 {
-                            styledA(href = raskraska.originalSrc.second) {
+                            styledA(href = raskraska.originalSrc.second, target = ATarget.blank) {
                                 +"Скачать оригинал"
                             }
                         }
